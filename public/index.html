@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1c35f5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Iron 91">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/alfa-slab-one.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <title>Iron 91</title>
+  <script src="/vendor/confetti.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+  <main>
+    <section id="login" class="view" hidden>
+      <form class="panel yellow login" id="login-form">
+        <h1 class="slab">Iron 91</h1>
+        <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+        <button class="btn big">Log in</button>
+      </form>
+    </section>
+
+    <section id="v-today" class="view" hidden>
+      <header class="hero" id="hero"></header>
+      <div id="mission"></div>
+      <div class="hero board" id="board"></div>
+      <div id="today-extra"></div>
+    </section>
+    <section id="v-fuel" class="view" hidden></section>
+    <section id="v-record" class="view" hidden></section>
+    <section id="v-wall" class="view" hidden></section>
+    <section id="v-setup" class="view" hidden></section>
+  </main>
+
+  <nav class="tabs" id="tabs" hidden>
+    <button data-view="today">Today</button>
+    <button data-view="fuel">Fuel</button>
+    <button data-view="record">Record</button>
+    <button data-view="wall">Wall</button>
+    <button data-view="setup">Setup</button>
+  </nav>
+
+  <div class="cam" id="cam" hidden>
+    <video id="cam-video" playsinline muted autoplay></video>
+    <div class="cam-bar">
+      <p id="cam-title"></p>
+      <div class="cam-controls">
+        <button class="btn ghost" data-act="camclose">Cancel</button>
+        <button class="shutter" data-act="snap" aria-label="Take photo"></button>
+        <button class="btn ghost" data-act="flip">Flip</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ko" id="ko" hidden><div><h2></h2><p></p></div></div>
+  <div class="busy" id="busy" hidden><p></p></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

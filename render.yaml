@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: iron91
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL        # Neon connection string (free, doesn't expire)
+        sync: false
+      - key: APP_PASSWORD        # the password you log in with
+        sync: false
+      - key: ANTHROPIC_API_KEY   # turns on the gym-photo check
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
